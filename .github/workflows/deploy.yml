@@ -8,6 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      
+          
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run build
+      
       - name: test
         run: |
           echo " "
@@ -16,10 +22,6 @@ jobs:
           echo "GITHUB_BASE_REF: ${GITHUB_BASE_REF}"
           echo " "
           
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm run build
-      
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
