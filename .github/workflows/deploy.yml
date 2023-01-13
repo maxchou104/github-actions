@@ -8,19 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      
-          
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
-      
-      - name: test
-        run: |
-          echo " "
-          echo "NODE_ENV: ${NODE_ENV}"
-          echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
-          echo "GITHUB_BASE_REF: ${GITHUB_BASE_REF}"
-          echo " "
+          
+      - name: Branch name
+        run: echo running on branch ${GITHUB_REF##*/}
           
       - uses: aws-actions/configure-aws-credentials@v1
         with:
