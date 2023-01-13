@@ -8,6 +8,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: test
+        run: |
+          echo " "
+          echo "NODE_ENV: ${NODE_ENV}"
+          echo "GITHUB_HEAD_REF: ${GITHUB_HEAD_REF}"
+          echo "GITHUB_BASE_REF: ${GITHUB_BASE_REF}"
+          echo " "
+          
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm run build
